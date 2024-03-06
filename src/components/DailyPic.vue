@@ -4,11 +4,11 @@ import { ref } from 'vue'
 interface PicData {
     title: string,
     date: string,
-    hdurl: string,
+    url: string,
     explanation: string
 }
 
-const picData = ref<PicData>({title: '', date: '', hdurl: '', explanation: ''})
+const picData = ref<PicData>({title: '', date: '', url: '', explanation: ''})
 
 async function getData() {
     const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
@@ -23,8 +23,9 @@ getData()
 <template>
     <h1>Pic Of The Day</h1>
     <div class="daily-pic-container">
+    <h2>{{ picData.title }}</h2>
     {{ picData.date }}
-    <img :src="picData.hdurl" />
+    <img :src="picData.url" />
     <p>{{ picData.explanation }}</p>
     </div>
 </template>
