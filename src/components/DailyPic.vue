@@ -33,6 +33,11 @@ getData()
 .daily-pic-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
+}
+img {
+    max-width: 1600px;
 }
 </style>
