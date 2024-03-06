@@ -21,11 +21,11 @@ getData()
 </script>
 
 <template>
-    <h1>Nasa Pic of the Day</h1>
+    <h1>Pic Of The Day</h1>
     <div class="daily-pic-container">
     {{ picData.date }}
     <img :src="picData.hdurl" />
-    {{ picData.explanation }}
+    <p>{{ picData.explanation }}</p>
     </div>
 </template>
 
@@ -36,8 +36,14 @@ getData()
     align-items: center;
     justify-content: center;
     gap: 8px;
+    max-width: 1600px;
+    width: 100%;
 }
 img {
     max-width: 1600px;
+    width: 90%;
+}
+p {
+    max-width: 1400px;
 }
 </style>
