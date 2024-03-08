@@ -10,24 +10,41 @@ interface PicData {
 
 const picData = ref<PicData>({ title: "", date: "", url: "", explanation: "" });
 
-async function getData() {
+
+function formatDate(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+const today = new Date();
+const chosenDate = ref<string>(formatDate(today));
+
+async function getData(date: string) {
   const res = await fetch(
-    "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+    `https://api.nasa.gov/planetary/apod?api_key=Xya2z9iHCUKGJvGqeSKRCyPDJWKcCuZkC8N8a3uk&date=${date}`
   );
   const data = await res.json();
   picData.value = data;
 }
 
-getData();
+getData(formatDate(today));
+
+function decrementDate() {
+    const currentChoice = new Date(chosenDate.value)
+    currentChoice.setDate(currentChoice.getDate())
+    chosenDate.value = formatDate(currentChoice)
+    getData(chosenDate.value)
+}
 </script>
 
 <template>
   <div class="daily-pic-container">
     <h1>Pic Of The Day</h1>
     <div class="date-buttons">
-      <button>-1 Day</button>
-      <button>Today</button>
-      <button>+1 Day</button>
+      <button @click="decrementDate()">-1 Day</button>
+      <button @click="getData(formatDate(today))">Today</button>
     </div>
     <h2>{{ picData.title }}</h2>
     {{ picData.date }}
@@ -47,8 +64,8 @@ getData();
   width: 100%;
 }
 .date-buttons {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 img {
   max-width: 1600px;
