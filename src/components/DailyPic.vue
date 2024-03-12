@@ -40,6 +40,7 @@ function decrementDate() {
 
 function getToday() {
   getData(formatDate(today))
+  chosenDate.value = formatDate(today)
 }
 </script>
 
