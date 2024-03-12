@@ -37,6 +37,10 @@ function decrementDate() {
     chosenDate.value = formatDate(currentChoice)
     getData(chosenDate.value)
 }
+
+function getToday() {
+  return null
+}
 </script>
 
 <template>
@@ -44,7 +48,7 @@ function decrementDate() {
     <h1>Pic Of The Day</h1>
     <div class="date-buttons">
       <button @click="decrementDate()">-1 Day</button>
-      <button @click="getData(formatDate(today))">Today</button>
+      <button @click="getToday()">Today</button>
     </div>
     <h2>{{ picData.title }}</h2>
     {{ picData.date }}
