@@ -79,4 +79,12 @@ img {
 p {
   max-width: 1400px;
 }
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 10px auto 10px;
+}
+h2 {
+  margin: 10px auto 10px;
+}
 </style>
