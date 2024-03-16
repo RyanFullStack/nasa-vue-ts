@@ -46,7 +46,7 @@ function getToday() {
 
 <template>
   <div class="daily-pic-container">
-    <h1>Pic Of The Day</h1>
+    <h1>Nasa Daily Pic</h1>
     <div class="date-buttons">
       <button @click="decrementDate()">-1 Day</button>
       <button @click="getToday()">Today</button>
