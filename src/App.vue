@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import DailyPic from './components/DailyPic.vue'
+import MarsPic from './components/MarsPics.vue'
 
 
 const selectedComponent = ref<string>('dailypic')
@@ -10,7 +11,8 @@ interface Components {
 }
 
 const components: Components = {
-  dailypic: DailyPic
+  dailypic: DailyPic,
+  marspics: MarsPic
 }
 </script>
 
