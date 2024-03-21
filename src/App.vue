@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import ref from 'vue'
+import { ref } from 'vue'
 import DailyPic from './components/DailyPic.vue'
 
 const selectedComponent = ref<string>('dailypic')
 
-const components = {
+interface Components {
+  [key: string]: typeof DailyPic
+}
+
+const components: Components = {
   dailypic: DailyPic
 }
 </script>
@@ -14,5 +18,5 @@ const components = {
     <option value="dailypic">Daily Pic</option>
     <option value="marspics">Mars Pics</option>
   </select>
-  <component :is="components[SelectedComponent]" />
+  <component :is="components[selectedComponent]" />
 </template>
