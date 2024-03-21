@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import DailyPic from './components/DailyPic.vue'
 
+
 const selectedComponent = ref<string>('dailypic')
 
 interface Components {
